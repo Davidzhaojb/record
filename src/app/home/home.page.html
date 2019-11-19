@@ -1,0 +1,95 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button class="font-size-header" (click)="customer()" color="light">
+                客服
+                <ion-icon slot="end" name="headset" color="light"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>游戏大厅</ion-title>
+        <ion-buttons slot="end">
+            <ion-button class="font-size-header" color="light" [routerLink]="['/im']" >
+                消息<span *ngIf="unreadMessage">({{unreadMessage}})</span>
+                <ion-icon name="chatboxes" slot="end" color="light"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="container">
+    <!-- 主题换肤 -->
+    <ion-fab horizontal="end" vertical="bottom" slot="fixed" class="skin">
+        <ion-fab-button color="light">
+            <ion-icon class="box font-30" name="logo-buffer"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list side="start">
+            <ion-fab-button *ngFor="let skin of skinArr" color="light" (click)="toggleAppTheme(skin.theme,skin)">
+                <div class="{{skin.class}}"></div>
+            </ion-fab-button>
+        </ion-fab-list>
+    </ion-fab>
+    <div class="banner-room">
+        <ion-slides *ngIf="bannerArr.length" #lunbo pager autoplay="5000" loop="true" speed="300" class="banner-sildes">
+            <ion-slide *ngFor="let item of bannerArr" tappable (click)="toActivity()">
+                <img src="{{item.ImgCode}}" alt="" />
+            </ion-slide>
+        </ion-slides>
+    </div>
+    <div class="home-menu">
+        <div class="home-menu-detail" *ngFor="let item of homeMenu" routerLink='{{item.route}}'>
+            <img src="{{item.src}}" alt="">
+            <p class="font-14">{{item.name}}</p>
+        </div>
+    </div>
+    <ion-grid class="lottery-detail" fixed>
+        <!-- 我的彩种 -->
+        <ion-row>
+            <ion-col class="ion-text-left header" size="6">我的彩种</ion-col>
+            <ion-col class="ion-text-right header-r" size="6" (click)="enterMyLotterys()">更多 ></ion-col>
+            <ion-col size="12">
+                <ion-slides pager="true" [options]="slideOpts" #hotBox pager=false>
+                    <ion-slide class="likes" *ngFor="let my of myLotterys">
+                        <div class="pad">
+                            <div class="icon-con"><i class="icon iconfont icon-{{my.LotteryCode}}"></i></div>
+                            <div class="font-14">{{my.LotteryName}}</div>
+                        </div>
+                    </ion-slide>
+                </ion-slides>
+            </ion-col>
+        </ion-row>
+        <!-- 热门彩种 -->
+        <ion-row>
+            <ion-col class="ion-text-left header" size="6">热门彩种</ion-col>
+            <ion-col class="ion-text-right header-r" size="6" (click)="showMore()">更多 ></ion-col>
+            <ion-col *ngFor="let hot of hotLotterys;let i = index" class="ion-text-center" size="6" (click)="goLotteryPage(hot)">
+                <div class="hot-container hotgame-background0{{i+1}}">
+                    <div class="hot-icon">
+                        <i class="icon icons iconfont icon-{{hot.LotteryCode}} font-40 color{{i+1}}"></i>
+                    </div>
+                    <div class="hot-lottery">
+                        <p>{{hot.LotteryName}}</p>
+                        <p>{{hot.LotteryTypeName}}</p>
+                    </div>
+                </div>
+            </ion-col>
+        </ion-row>
+        <!-- 真人&体育 -->
+        <ion-row>
+            <ion-col class="ion-text-left header" size="12">真人&体育</ion-col>
+            <ion-col *ngFor="let list of thirdGameList" class="ion-text-center" size-sm="6" size-lg="3" size-xs="6">
+                <div>
+                    <img src="{{list.src}}" alt="">
+                </div>
+            </ion-col>
+        </ion-row>
+        <!-- vr系列 -->
+        <ion-row>
+            <ion-col class="ion-text-left header" size="12">VR系列</ion-col>
+            <ion-col class="vr-col" size="6" *ngFor="let vr of vrGameList">
+                <div class="vrList ion-text-center">
+                    {{vr.gameName}}
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</ion-content>

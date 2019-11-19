@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>开奖走势</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="content">
+    <div class="trend" *ngFor="let open of openlatest" (click)='enterOpenList(open)'>
+        <div class="trend-icon">
+            <i class="icon iconfont icon-{{open.LotteryCode}} bg-color{{open.BgColorNo}} fff"></i>
+        </div>
+        <div class="container">
+            <div class="trend-name">
+                <span class="tname-name">{{open.LotteryName}}</span>
+                <span class="tname-no">第{{open.IssueNo}}期</span>
+            </div>
+            <div class="trend-number" [ngClass]="{'trend-ten': open.openlistLegnth>=6}">
+                <span *ngFor="let num of open.LotteryOpenNo.split(',')" class="numbers">{{num}}
+                </span>
+            </div>
+        </div>
+    </div>
+</ion-content>

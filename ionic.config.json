@@ -1,0 +1,7 @@
+{
+  "name": "baishi",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

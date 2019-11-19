@@ -1,0 +1,21 @@
+    <ion-content><ion-grid fixed class="lottery-types">
+    <h5>彩种类型</h5>
+    <ion-row class="row">
+        <ion-col  size-md="3" size-sm="4" size-xs="4" class="lotterty-kind" *ngFor="let item of lotteryTypes">
+            <button ion-button (click)="changeLotteryType(item)"
+                [ngClass]="{'actived': item.code==inputLotteryType.code}"> {{item.name}}</button>
+        </ion-col>
+    </ion-row>
+    <h5>{{currentLottery.LotteryTypeName}}</h5>
+
+
+    <ion-row class="row">
+        <ion-col  size-md="3" size-sm="4" size-xs="4" class="lotterty-kind" *ngFor="let item of currShowLotteries">
+            <button ion-button color="light" (click)="changeLottery(item)"
+                [ngClass]="{'actived': currentLottery.LotteryCode===item.LotteryCode}">
+                {{item.LotteryName}}
+            </button>
+        </ion-col>
+    </ion-row>
+</ion-grid>
+</ion-content>

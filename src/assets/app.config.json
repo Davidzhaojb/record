@@ -1,0 +1,27 @@
+{
+    "appBaseUrl": "http://localhost:8100",
+    "remoteSignalrBaseUrl": "http://websockettest.roostyle.com",
+    "customServiceUrl": "http://websockettest.roostyle.com",
+    "bonusModes": [
+        {
+            "modeName": "元",
+            "modeCode": "yuan",
+            "modeValue": 1
+        },
+        {
+            "modeName": "角",
+            "modeCode": "jiao",
+            "modeValue": 0.1
+        },
+        {
+            "modeName": "分",
+            "modeCode": "fen",
+            "modeValue": 0.01
+        },
+        {
+            "modeName": "厘",
+            "modeCode": "li",
+            "modeValue": 0.001
+        }
+    ]
+}

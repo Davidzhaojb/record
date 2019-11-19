@@ -1,0 +1,59 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button color="light" text=''></ion-back-button>
+        </ion-buttons>
+        <ion-title>彩票中心</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="container">
+    <div class="lotterybox-l">
+        <p [ngClass]="{'select': val == '全部'}" (click)="select('全部')">
+            <a href="javascript:;">
+                全部
+            </a>
+        </p>
+        <p *ngFor="let x of newLotterys;let i=index" [ngClass]="{'select': x.name == val}" (click)="select(x.name)">
+            {{x.name}}
+        </p>
+    </div>
+    <div class="lotterybox-r">
+        <!-- 全部 -->
+        <ion-list *ngIf="!isShowDifLottery">
+            <div *ngFor="let x of newLotterys;let i = index">
+                <div class="list" *ngFor="let like of x.plays;let i = index" tappable>
+                    <div class="list-icon">
+                        <i class="icon iconfont icon-{{like.LotteryCode}}"></i>
+                    </div>
+                    <div class="list-name">
+                        <p class="lot-name">{{like.LotteryName}}</p>
+                        <p class="lot-tname">
+                            {{x.name}}
+                        </p>
+                    </div>
+                    <div class="list-iconright">
+                        >
+                    </div>
+                </div>
+            </div>
+        </ion-list>
+        <!-- 明细 -->
+        <ion-list *ngIf="isShowDifLottery">
+            <div class="list" *ngFor="let dif of difLottery" tappable>
+                <div class="list-icon">
+                    <i class="icon iconfont icon-{{dif.LotteryCode}}"></i>
+                </div>
+                <div class="list-name">
+                    <p class="lot-name">{{dif.LotteryName}}</p>
+                    <p class="lot-tname">
+                        {{dif.LotteryTypeName}}
+                    </p>
+                </div>
+                <div class="list-iconright">
+                    >
+                </div>
+            </div>
+
+        </ion-list>
+    </div>
+</ion-content>

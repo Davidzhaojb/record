@@ -1,0 +1,23 @@
+ion-note {
+	font-size: 1.4rem;
+}
+ion-content {
+	--background: #f2f2f2;
+	--padding-top: 2rem;
+}
+ion-item {
+	&:last-child {
+		--inner-border-width: 0;
+	}
+	.avatar-pos {
+		position: relative;
+		.badge-abs {
+			position: absolute;
+			right: -10px;
+			top: -4px;
+		}
+	}
+}
+ion-list-header {
+	font-size: 1.6rem;
+}

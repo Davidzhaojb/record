@@ -1,0 +1,82 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button color="light" text=''></ion-back-button>
+        </ion-buttons>
+        <ion-title *ngIf="!isShowManyUser" align="center">{{chatUser == parentUserName?'上级代理':chatUser}}</ion-title>
+        <ion-title *ngIf="isShowManyUser" align="center">群发</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content scrollDownOnLoad="true" class="content">
+
+    <div class="msgtouser" *ngIf="isShowManyUser&& manyUser">
+        <p class="msgsend">您将发送消息给<span>&nbsp;{{manyUser.userNum}}&nbsp;</span>位朋友</p>
+        <p class="msgname"><span *ngFor="let user of manyUser.selectUser">{{user.NickName}},</span></p>
+    </div>
+    <div *ngFor="let message of messages;let i = index"
+        [ngClass]="{'clickFlag': i == messages.length-1 && isShowEmojiList}" id="message-wrapper"
+        class="message-wrapper" (click)="onMessageHold()">
+        <!-- 判断消息是否为接收消息 -->
+        <div *ngIf="message.toUserName == currUser">
+            <img class="profile-pic left" src="assets/images/chat-icon.png" />
+            <div class="chat-bubble left slide-left">
+                <div class="message" [innerHTML]="message.text" autolinker></div>
+                <div class="message-detail">
+                    <span>{{message.sendTime}}</span>
+                </div>
+            </div>
+        </div>
+        <!-- 判断消息是否为发送消息 -->
+        <div *ngIf="message.toUserName !== currUser">
+            <img class="profile-pic right" src="assets/images/chat-icon1.png" />
+            <div class="chat-bubble right slide-right">
+                <div class="message" [innerHTML]="message.text" autolinker></div>
+                <div class="message-detail">
+                    <span>{{message.sendTime}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="cf"></div>
+    </div>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingText="正在刷新..."></ion-refresher-content>
+    </ion-refresher>
+    <div class="scroll">温馨提示：为了您的账户资金安全，请勿向他人透漏您的账户密码及银行绑定信息！</div>
+
+</ion-content>
+<ion-footer>
+    <form class="message-form" novalidate>
+        <ion-item class="msg-form-item">
+            <div id="message-box" *ngIf="!this.noSpeak" class="message-box"></div>
+            <span *ngIf="showPlaceholder && !isShowManyUser" class="placeholder" (click)="focusEvent()">
+                给 {{chatUser == parentUserName?'上级代理':chatUser}} 发送消息(最多50字符)...
+            </span>
+            <span *ngIf="showPlaceholder && isShowManyUser" class="placeholder" (click)="focusEvent()">
+                给 {{manyUser.userNum}} 位朋友发送消息(最多50字符)...
+            </span>
+            <ion-input *ngIf="this.noSpeak" class="message-send" disabled="true" placeholder="您已被禁言，请联系客服...">
+            </ion-input>
+            <ion-button class="happy" *ngIf="!this.noSpeak" (click)="showEmojiList()" item-end>
+                <ion-icon class="happy-fontsize" name="happy"></ion-icon>
+            </ion-button>
+            <ion-button class="happy" *ngIf="this.noSpeak" item-end>
+                <ion-icon class="happy-fontsize" name="happy"></ion-icon>
+            </ion-button>
+            <ion-button class="send" *ngIf="!this.noSpeak" (click)="send()" item-end>
+                <ion-icon class="footer-btn" name="send"></ion-icon>
+            </ion-button>
+            <ion-button class="send" *ngIf="this.noSpeak" class="noclick" item-end>
+                <ion-icon class="footer-btn" name="send"></ion-icon>
+            </ion-button>
+        </ion-item>
+        <ion-item class="container-emoji" *ngIf="isShowEmojiList">
+            <ion-row class="emojisty" *ngFor="let emojiItem of emojiListModel.emojiList">
+                <ion-col class="emoji-fontsize" *ngFor="let emoji of emojiItem.emojiExtend"
+                    (click)="emojiClick(emojiItem,emoji)" size="1">
+                    <img src="{{emojiItem.path}}{{emoji.id}}{{emojiItem.postfix}}" alt="">
+                </ion-col>
+            </ion-row>
+        </ion-item>
+    </form>
+</ion-footer>

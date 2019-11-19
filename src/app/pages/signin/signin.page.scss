@@ -1,0 +1,116 @@
+ion-content {
+	--background: #f1f1f1;
+}
+.container {
+	ion-button {
+		--background: none;
+		--background-activated: none;
+		--background-hover: none;
+		--background-focused: none;
+		.eye {
+			color: #ea424f;
+		}
+	}
+	.logo {
+		height: 20rem;
+		position: relative;
+		overflow: hidden;
+		.logo-bg {
+			padding-top: 5.4rem;
+			height: 100%;
+			width: 120%;
+			margin-left: -10%;
+			background: #ea424f;
+			text-align: center;
+			border-radius: 0px 0px 40% 40%;
+			img {
+				display: inline-block;
+				width: 20rem;
+				position: relative;
+			}
+		}
+	}
+	.signin-form {
+		position: relative;
+		z-index: 10;
+		padding: 0rem 2rem;
+		margin-top: -5.2rem;
+	}
+
+	.login-form {
+		& > h2 {
+			text-align: center;
+			color: #ea424f;
+			font-weight: bolder;
+			font-size: 3rem;
+			padding: 1.6rem;
+			margin-top: 0;
+		}
+		border-radius: 0.4rem;
+		background: #fff;
+		box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.36);
+		padding: 0.4rem 0rem;
+		.form-item {
+			padding: 0px 16px;
+			margin-bottom: 1rem;
+			.label.label-ios {
+				margin-left: 8px;
+				margin-right: 0px;
+			}
+			.input.input-ios {
+				font-size: 1.4rem;
+			}
+			.icon.iconfont {
+				font-size: 2.7rem;
+				font-weight: 600;
+				color: #cc8281;
+			}
+			ion-input {
+				font-size: 12px;
+				--padding-start: 0.8rem;
+			}
+			&.btns {
+				text-align: center;
+				margin: 6rem 0rem 2rem 0rem;
+				padding: 0px 3rem;
+				.btn-login {
+					outline-style: none;
+					cursor: pointer;
+					border-radius: 3rem;
+					width: 100%;
+					background: #ea424f;
+					height: 4.2rem;
+					box-shadow: 0px 5px 5px 0px rgba(69, 69, 69, 0.4);
+					color: #fff;
+					font-size: 2.2rem;
+					.button-inner {
+						font-size: 2.2rem;
+					}
+					&:active {
+						background: #c9303d;
+						transition: all 0.3s;
+					}
+				}
+			}
+		}
+		.grid-link {
+			text-align: center;
+			margin-bottom: 4rem;
+			.icon-item {
+				display: inline-block;
+				color: #c77778;
+				cursor: pointer;
+				i,
+				span {
+					font-size: 1.4rem;
+					display: inline-block;
+					vertical-align: middle;
+				}
+				i {
+					font-size: 2.2rem;
+					font-weight: 600;
+				}
+			}
+		}
+	}
+}

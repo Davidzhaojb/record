@@ -1,0 +1,67 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" *ngIf="!isShowWithDetail">
+            <ion-back-button color="light" text=''></ion-back-button>
+        </ion-buttons>
+        <ion-title align="center" *ngIf="!isShowWithDetail">提现记录</ion-title>
+        <ion-title align="center" *ngIf="isShowWithDetail">提现记录--详情</ion-title>
+        <ion-buttons slot="end" *ngIf="isShowWithDetail" (click)="close()" tappable>
+            <ion-icon name="close" class="font-30" color="light"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <!-- <ion-segment color="danger" scrollable *ngIf="!isShowWithDetail">
+        <ion-segment-button class="seg-pad topleft-rad" checked layout="icon-start">
+            <ion-label>时间</ion-label>
+            <ion-icon name="alarm"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button class="seg-pad" layout="icon-start">
+            <ion-label>金额</ion-label>
+            <ion-icon name="paper-plane"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button class="seg-pad topright-rad" layout="icon-start" (click)="filter()">
+            <ion-label>筛选</ion-label>
+            <ion-icon name="hourglass"></ion-icon>
+        </ion-segment-button>
+    </ion-segment> -->
+    <app-base-segment *ngIf="!isShowWithDetail" (doFilter)="getFilter($event)"></app-base-segment>
+    <div *ngIf="isHave && !isShowWithDetail">
+        <ion-card *ngFor="let item of depRecords">
+            <ion-item href="javascript:;" lines='none' (click)="enterMain(item)">
+                <ion-icon [ngClass]="{'faild': item.State == 03,'success':item.State == 02,'warning':item.State == 01}"
+                    name="wallet" slot="start">
+                </ion-icon>
+                <ion-label>
+                    <p>
+                        <!-- 01 待审核 -->
+                        <ion-icon *ngIf="item.State == 01" name="information-circle-outline"></ion-icon>
+                        <!-- 02 已审核 -->
+                        <ion-icon *ngIf="item.State == 02" name="checkmark-circle-outline"></ion-icon>
+                        <!-- 03 已拒绝 -->
+                        <ion-icon *ngIf="item.State == 03" name="close-circle-outline"></ion-icon>
+                        订单状态：<span>{{item.StateName}}</span>
+                    </p>
+                    <p>
+                        <ion-icon name="alarm"></ion-icon>
+                        提现时间：<span>{{item.AddTime}}</span>
+                    </p>
+                </ion-label>
+                <ion-label class="dis-inherit" slot="end"
+                    [ngClass]="{'faild': item.State == 03,'success':item.State == 02,'warning':item.State == 01}">
+                    -{{item.WithDrawMoney}}</ion-label>
+            </ion-item>
+        </ion-card>
+    </div>
+    <app-no-msg *ngIf="!isHave" [msg]='msg'></app-no-msg>
+    <app-base-recordmain *ngIf="isShowWithDetail" [withDrawItem]="withDrawItem"></app-base-recordmain>
+    <ion-refresher *ngIf="!hasmore" slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="下拉刷新 ~" refreshingSpinner="circles"
+            refreshingText="加载中...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="doRefresh($event)">
+            <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载中...">
+            </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+</ion-content>

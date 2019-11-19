@@ -1,0 +1,10 @@
+.blue-theme {
+	visibility: inherit;
+	ion-toolbar {
+		--background: blue;
+	}
+	ion-button {
+		--background: blue;
+		--background-activated: blue;
+	}
+}

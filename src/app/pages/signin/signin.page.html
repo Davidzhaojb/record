@@ -1,0 +1,35 @@
+<ion-content>
+    <div class="container">
+        <div class="logo">
+            <div class="logo-bg">
+                <!-- <img src="assets/images/img-logo.png" alt="logo"> -->
+                <p>登录</p>
+            </div>
+        </div>
+        <div class="signin-form">
+            <form class="login-form">
+                <h2>会员登录</h2>
+                <ion-item class="form-item">
+                    <ion-label><i class="icon iconfont icon-login-user"></i></ion-label>
+                    <ion-input type="text" clearInput placeholder="请输入登陆账号" [(ngModel)]="form.username" name="username"
+                        (keydown)="keyDown($event)"></ion-input>
+                </ion-item>
+                <ion-item class="form-item">
+                    <ion-label><i class="icon iconfont icon-password"></i></ion-label>
+                    <ion-input type="password" clearInput placeholder="请输入密码" [(ngModel)]="form.password"
+                        name="password" (keydown)="keyDown($event)" *ngIf="!isShowPwd">
+                    </ion-input>
+                    <ion-input type="text" clearInput placeholder="请输入密码" [(ngModel)]="form.password" name="password"
+                        *ngIf="isShowPwd">
+                    </ion-input>
+                    <ion-button slot="end" (click)="showPwd()">
+                        <ion-icon class="eye" name="eye" slot='end'></ion-icon>
+                    </ion-button>
+                </ion-item>
+                <div class="form-item btns">
+                    <button expand='block' class="btn-login" (click)="login()">立即登录</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</ion-content>

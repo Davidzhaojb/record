@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button color="light" text=''></ion-back-button>
+        </ion-buttons>
+        <ion-title>公告详情</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="content">
+    <ion-card class="ion-padding" *ngIf="!noMsg">
+        <div [innerHtml]="noticeDetail">
+
+        </div>
+    </ion-card>
+    <ion-card class="ion-padding ion-text-center" *ngIf="noMsg">
+        暂无内容
+    </ion-card>
+</ion-content>

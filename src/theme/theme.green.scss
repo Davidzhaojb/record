@@ -1,0 +1,11 @@
+.green-theme {
+	visibility: inherit;
+	ion-toolbar {
+		--background: green;
+	}
+	ion-button {
+		--background: green;
+		--background-activated: green;
+	}
+}
+  

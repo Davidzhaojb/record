@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-toolbar>
+        <!-- <back-icon size="md"></back-icon> -->
+        <ion-buttons slot="start">
+            <ion-back-button color="light" text=''></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            <p class="check-picker">
+                <span class="check-name" (click)="btnChooseLottery()">{{currentLottery.LotteryName}}
+                    <ion-icon name="md-arrow-dropdown"></ion-icon>
+                    <!-- <ion-icon *ngIf="!isShowDropDown" name="md-arrow-dropup"></ion-icon> -->
+                </span>
+            </p>
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-icon name="more" color="light" size="large" (click)="moreMenu($event)"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+    <div class="lottery-mark" *ngIf="isShowLotteryChoose">
+        <lottery-chooes #lotteryChoose [currentLottery]='currentLottery' (checkLottery)="childCheckedLottery($event)">
+        </lottery-chooes>
+        <button class="colse-modal" (click)="disLotteryChoose()"></button>
+    </div>
+
+</ion-header>
+<ion-content>
+    <lottery-number [currentLottery]='currentLottery'></lottery-number>
+    <ion-row justify-content-center class="game-select-box">
+        <ion-col size="9" class="momore-play-box">
+            <div class="roll">
+                <button *ngFor="let memorMoule of brickCachedModel" (click)="memoryClick(memorMoule)"
+                    [ngClass]="{'activd': memorMoule.PlayDetail.LotteryPlayModeCode===selectedPlayModeDetail.LotteryPlayModeCode}">
+                    {{memorMoule.PlayMode.LotteryName}}-{{memorMoule.PlayDetail.LotteryPlayDetailName}}
+                </button>
+            </div>
+        </ion-col>
+        <ion-col size="3" class="ion-text-center">
+            <button class="point" (click)='showPlayDetail()'>选择>></button>
+        </ion-col>
+    </ion-row>
+    <!-- <div row class="game-select-box">
+        <ion-row>
+            <ion-col size="3" *ngFor="let memorMoule of brickCachedModel">
+                {{memorMoule.PlayMode.LotteryName}}-{{memorMoule.PlayDetail.LotteryPlayDetailName}}
+            </ion-col>
+        </ion-row>
+        <div class="momore-play">
+            <button *ngFor="let memorMoule of brickCachedModel"> {{memorMoule.PlayMode.LotteryName}}-{{memorMoule.PlayDetail.LotteryPlayDetailName}}</button>
+        </div>
+        <button class="point" (click)='showPlayDetail()'>玩法选择></button>
+    </div> -->
+</ion-content>

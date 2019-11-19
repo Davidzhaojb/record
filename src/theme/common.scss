@@ -1,0 +1,425 @@
+a,
+article,
+aside,
+b,
+body,
+button,
+dd,
+div,
+dl,
+dt,
+figcaption,
+figure,
+footer,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+i,
+input,
+li,
+nav,
+p,
+section,
+select,
+span,
+textarea,
+ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	font-style: normal;
+	text-decoration: none;
+	border: none;
+	outline: none;
+	font-weight: 400;
+	// font-family: Microsoft Yahei;
+	font-family: "苹方", "San Francisco";
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-font-smoothing: antialiased;
+}
+body {
+	line-height: 1;
+}
+html {
+	font-size: 10px;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+p {
+	margin: 0;
+	padding: 0;
+}
+nav ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+	content: none;
+}
+
+a {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+/* change colours to suit your needs */
+
+ins {
+	background-color: #ff9;
+	color: #000;
+	text-decoration: none;
+}
+
+/* change colours to suit your needs */
+
+mark {
+	background-color: #ff9;
+	color: #000;
+	font-style: italic;
+	font-weight: bold;
+}
+
+del {
+	text-decoration: line-through;
+}
+
+abbr[title],
+dfn[title] {
+	border-bottom: 1px dotted;
+	cursor: help;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* change border colour to suit your needs */
+
+hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #cccccc;
+	margin: 1em 0;
+	padding: 0;
+}
+
+.pull-left {
+	float: left;
+}
+
+.pull-right {
+	float: right;
+}
+
+ul,
+li {
+	list-style: none;
+}
+
+span,
+input {
+	display: inline-block;
+}
+.f-left {
+	float: left;
+}
+.f-right {
+	float: right;
+}
+.t-left {
+	text-align: left;
+}
+.t-right {
+	text-align: right;
+}
+.t-center {
+	text-align: center;
+}
+.inherit{
+    display: inherit;
+}
+//#region 首页，个人中心字体颜色，背景色
+.color1 {
+	color: var(--ion-color-fontcolor01);
+}
+.color2 {
+	color: var(--ion-color-fontcolor02);
+}
+.color3 {
+	color: var(--ion-color-fontcolor03);
+}
+.color4 {
+	color: var(--ion-color-fontcolor04);
+}
+.color5 {
+	color: var(--ion-color-fontcolor05);
+}
+.color6 {
+	color: var(--ion-color-fontcolor06);
+}
+//#endregion
+//#region 颜色
+.red {
+	color: var(--ion-color-red);
+}
+.fff {
+	color: var(--ion-color-medium-contrast);
+}
+.theme {
+	color: var(--ion-color-theme);
+}
+.color-0 {
+	color: #000;
+}
+.color-1 {
+	color: #111;
+}
+.color-2 {
+	color: #222;
+}
+.color-3 {
+	color: #333;
+}
+.color-4 {
+	color: #444;
+}
+.color-5 {
+	color: #555;
+}
+.color-6 {
+	color: #666;
+}
+.color-7 {
+	color: #777;
+}
+.color-8 {
+	color: #888;
+}
+.color-9 {
+	color: #999;
+}
+//#endregion 颜色结束
+//#region 字体大小
+.font-12 {
+	font-size: 1.2rem;
+}
+.font-14 {
+	font-size: 1.4rem;
+}
+.font-15 {
+	font-size: 1.5rem;
+}
+.font-16 {
+	font-size: 1.6rem;
+}
+.font-17 {
+	font-size: 1.7rem;
+}
+.font-18 {
+	font-size: 1.8rem;
+}
+.font-19 {
+	font-size: 1.9rem;
+}
+.font-20 {
+	font-size: 2rem;
+}
+.font-30 {
+	font-size: 3rem;
+}
+.font-40 {
+	font-size: 4rem;
+}
+.font-50 {
+	font-size: 5rem;
+}
+//#endregion
+//#region 首页热门彩种背景渐变色
+.hotgame-background01 {
+	background: -webkit-linear-gradient(to right, var(--ion-color-fontcolor01), var(--ion-color-background01));
+	background: -o-linear-gradient(to right, var(--ion-color-fontcolor01), var(--ion-color-background01));
+	background: -moz-linear-gradient(to right, var(--ion-color-fontcolor01), var(--ion-color-background01));
+	background: linear-gradient(to right, var(--ion-color-fontcolor01), var(--ion-color-background01));
+}
+.hotgame-background02 {
+	background: -webkit-linear-gradient(to right, var(--ion-color-fontcolor02), var(--ion-color-background02));
+	background: -o-linear-gradient(to right, var(--ion-color-fontcolor02), var(--ion-color-background02));
+	background: -moz-linear-gradient(to right, var(--ion-color-fontcolor02), var(--ion-color-background02));
+	background: linear-gradient(to right, var(--ion-color-fontcolor02), var(--ion-color-background02));
+}
+.hotgame-background03 {
+	background: -webkit-linear-gradient(to right, var(--ion-color-fontcolor03), var(--ion-color-background03));
+	background: -o-linear-gradient(to right, var(--ion-color-fontcolor03), var(--ion-color-background03));
+	background: -moz-linear-gradient(to right, var(--ion-color-fontcolor03), var(--ion-color-background03));
+	background: linear-gradient(to right, var(--ion-color-fontcolor03), var(--ion-color-background03));
+}
+.hotgame-background04 {
+	background: -webkit-linear-gradient(to right, var(--ion-color-fontcolor04), var(--ion-color-background04));
+	background: -o-linear-gradient(to right, var(--ion-color-fontcolor04), var(--ion-color-background04));
+	background: -moz-linear-gradient(to right, var(--ion-color-fontcolor04), var(--ion-color-background04));
+	background: linear-gradient(to right, var(--ion-color-fontcolor04), var(--ion-color-background04));
+}
+.hotgame-background05 {
+	background: -webkit-linear-gradient(to right, var(--ion-color-fontcolor05), var(--ion-color-background05));
+	background: -o-linear-gradient(to right, var(--ion-color-fontcolor05), var(--ion-color-background05));
+	background: -moz-linear-gradient(to right, var(--ion-color-fontcolor05), var(--ion-color-background05));
+	background: linear-gradient(to right, var(--ion-color-fontcolor05), var(--ion-color-background05));
+}
+.hotgame-background06 {
+	background: -webkit-linear-gradient(to right, var(--ion-color-fontcolor06), var(--ion-color-background06));
+	background: -o-linear-gradient(to right, var(--ion-color-fontcolor06), var(--ion-color-background06));
+	background: -moz-linear-gradient(to right, var(--ion-color-fontcolor06), var(--ion-color-background06));
+	background: linear-gradient(to right, var(--ion-color-fontcolor06), var(--ion-color-background06));
+}
+//#endregion
+
+//#region 走势图样式
+.bg-color1 {
+	background-color: #fe9021;
+}
+.bg-color2 {
+	background-color: #ef4b57;
+}
+.bg-color3 {
+	background-color: #3396fa;
+}
+.bg-color4 {
+	background-color: #3ca256;
+}
+.bg-color5 {
+	background-color: #bf36f6;
+}
+.bg-color6 {
+	background-color: #ffac22;
+}
+.bg-color7 {
+	background-color: #ff7a3f;
+}
+.bg-color8 {
+	background-color: #ff0000;
+}
+.bg-color9 {
+	background-color: #9cb667;
+}
+.bg-color10 {
+	background-color: #da4321;
+}
+//#endregion 走势图样式 end
+
+.more-menu {
+	--width: 150px;
+}
+
+//#region popover弹窗公共样式
+.popover-content {
+	width: 90% !important;
+	height: 100% !important;
+	left: auto !important;
+	right: 0 !important;
+	top: 3.6rem !important;
+	border-radius: 0 !important;
+	position: relative;
+	.screen {
+		.search-title {
+			background: #efefef;
+			padding-top: 0.4rem;
+			padding-bottom: 0.4rem;
+		}
+		.search-condition {
+			ion-item {
+				.pad-left {
+					padding-left: 1rem;
+					font-size: 1.6rem;
+					color: #8a8a8a;
+				}
+				ion-datetime {
+					font-size: 1.6rem;
+					color: #333;
+				}
+			}
+		}
+		.main_btns {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			height: 4rem;
+			width: 100%;
+			.l {
+				width: 40%;
+				height: 100%;
+				font-size: 1.6rem;
+				background: #f5f5f5;
+				// border: 1px solid color($colors, darkfour);
+				border: none !important;
+				color: #333;
+			}
+			.r {
+				width: 60%;
+			}
+			.primary {
+				// background: color($colors, primary);
+				background: -webkit-linear-gradient(#fa6b6b, #fe5151);
+				/* Safari 5.1 - 6.0 */
+				background: -o-linear-gradient(#fa6b6b, #fe5151);
+				/* Opera 11.1 - 12.0 */
+				background: -moz-linear-gradient(#fa6b6b, #fe5151);
+				/* Firefox 3.6 - 15 */
+				background: linear-gradient(#fa6b6b, #fe5151);
+				/* 标准的语法 */
+				// border: 1px solid color($colors, primary);
+				color: #fff;
+			}
+		}
+	}
+	.selected {
+		color: #e91313;
+		font-weight: bold;
+		font-size: 1.6rem;
+	}
+}
+//#endregion popover弹窗样式
+
+//#region segment 圆角样式修改
+.topleft-rad {
+	border-top-left-radius: 0;
+}
+.topright-rad {
+	border-top-right-radius: 0;
+}
+.bottomleft-rad {
+	border-bottom-left-radius: 0;
+}
+.bottomright-rad {
+	border-bottom-right-radius: 0;
+}
+//#endregion segment 圆角样式修改

@@ -1,0 +1,33 @@
+ion-content {
+	--background: #f1f1f1;
+}
+.search {
+	min-height: 1.4rem;
+	margin: 1rem 0;
+	position: relative;
+	ion-input {
+		width: 96%;
+		margin: 0 auto;
+		background: #fff;
+        border-radius: 6px;
+        --padding-start:1rem;
+	}
+	ion-icon {
+		position: absolute;
+		top: 0.7rem;
+		left: 1rem;
+		color: #ccc;
+		font-size: 23px;
+	}
+}
+.nickname{
+    font-size: 1.2rem;
+}
+.next {
+	color: #33bb27;
+	background: #fff;
+	text-align: center;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}

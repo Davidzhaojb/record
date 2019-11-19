@@ -1,0 +1,10 @@
+.red-theme {
+	visibility: inherit;
+	ion-toolbar {
+		--background: red;
+	}
+	ion-button {
+		--background: red;
+		--background-activated: red;
+	}
+}

@@ -1,0 +1,153 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button color="light" text=''></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{lotteryName}}</ion-title>
+    </ion-toolbar>
+    <div class="topTab">
+        <ul>
+            <li [ngClass]="{'active': item.value==isShowNumber}" *ngFor="let item of defaultTitle"
+                (click)="typeChoose(item.value)">{{item.name}}</li>
+        </ul>
+    </div>
+</ion-header>
+
+<ion-content class="content">
+    <!-- 开奖号码 -->
+    <div class="list-wrap" *ngFor="let open of openList;let i = index;">
+        <!-- 号码 -->
+        <div class="list-item" *ngIf="isShowNumber == 1">
+            <div class="infor-box">
+                <span class="left">{{lotteryName}}</span>
+                <span class="right">第{{open.IssueNo}}期</span>
+            </div>
+            <div class="list-result list-result-lhc">
+                <ng-container
+                    *ngIf="(open.LotteryOpenNo.split(',').length == 5 || open.LotteryOpenNo.split(',').length==3)&&open.LotteryOpenNo.split(',').length!=7 ">
+                    <span *ngFor="let num of open.LotteryOpenNo.split(',');let i = index" class="number-box">
+                        <span class="numdetail5">
+                            <strong [ngClass]="{'sign-red': num%2==0,'sign-blue':num%2!=0}">
+                                {{num}}
+                            </strong>
+                        </span>
+                    </span>
+                </ng-container>
+                <ng-container
+                    *ngIf="open.LotteryOpenNo.split(',').length == 10 && open.LotteryOpenNo.split(',').length!=7">
+                    <span *ngFor="let num of open.LotteryOpenNo.split(',');let i = index" class="number-box">
+                        <span class="numdetail10 color{{num}}">
+                            {{num}}
+                        </span>
+                    </span>
+                </ng-container>
+                <span *ngFor="let item of open.openNumList" class="number-box">
+                    <!-- <span *ngIf="open.LotteryOpenNo.split(',').length == 7">
+                        <span class="numdetail7 sixNum {{getSxByNum(item.figures,open.IssueNo).color}}">
+                            {{item.figures}}
+                            <span class="six-zodiac">{{item.zodiac}}</span>
+                        </span>
+                    </span> -->
+                </span>
+            </div>
+        </div>
+        <!-- 大小 -->
+        <div class="list-item" *ngIf="isShowNumber == 2">
+            <div class="infor-box">
+                <span class="left">{{lotteryName}}</span>
+                <span class="right">第{{open.IssueNo}}期</span>
+            </div>
+            <div class="list-result">
+                <span class="number-box" *ngFor="let item of open.BigSmall">
+                    <span class="numdetail"
+                        [ngClass]="{'bg-red': item=='大','bg-blue':item=='小','bg-green':item=='和'}">{{item}}</span>
+                </span>
+            </div>
+        </div>
+        <!-- 单双 -->
+        <div class="list-item" *ngIf="isShowNumber == 3">
+            <div class="infor-box">
+                <span class="left">{{lotteryName}}</span>
+                <span class="right">第{{open.IssueNo}}期</span>
+            </div>
+            <div class="list-result">
+                <span *ngFor="let item of open.OddEven" class="number-box">
+                    <span class="numdetail" [ngClass]="{'bg-blue': item=='单','bg-red': item=='双'}">{{item}}</span>
+                </span>
+            </div>
+        </div>
+        <!-- 龙虎 -->
+        <div class="list-item"
+            *ngIf="isShowNumber == 4 && open.LotteryOpenNo.split(',').length != 3 && open.LotteryOpenNo.split(',').length != 7">
+            <div class="infor-box">
+                <span class="left">{{lotteryName}}</span>
+                <span class="right">第{{open.IssueNo}}期</span>
+            </div>
+            <div class="list-result" *ngIf="open.LotteryOpenNo.split(',').length == 5">
+                <span class="number-box" *ngFor="let item of open.LongHuArr">
+                    <span class="numdetail bor-radius"
+                        [ngClass]="{'bg-red':item.value.indexOf('龙')>=0,'bg-blue':item.value.indexOf('虎')>=0,'bg-green':item.value.indexOf('和')>=0}">{{item.value}}</span>
+                    <span class="numdetail bor-radius bg-dark">{{item.position}}</span>
+                </span>
+            </div>
+            <div class="list-result" *ngIf="open.LotteryOpenNo.split(',').length == 10">
+                <span class="number-box" *ngFor="let item of open.LongHuArrPK10">
+                    <span class="numdetail bor-radius"
+                        [ngClass]="{'bg-red':item.indexOf('龙')>=0,'bg-blue':item.indexOf('虎')>=0,'bg-green':item.indexOf('和')>=0}">{{item}}</span>
+                </span>
+            </div>
+        </div>
+        <!-- 总和 -->
+        <div class="list-item" *ngIf="isShowNumber == 5">
+            <div class="infor-box">
+                <span class="left">{{lotteryName}}</span>
+                <span class="right">第{{open.IssueNo}}期</span>
+            </div>
+            <div *ngIf="open.LotteryOpenNo.split(',').length == 10" class="list-result">
+                冠亚和:
+                <span class="total-ball">
+                    <strong
+                        [ngClass]="{'sign-red': open.oneTwoOddEven == '双','sign-blue': open.oneTwoOddEven == '单'}">{{open.oneTwo}}</strong>
+                </span>
+                <span *ngIf="open.oneTwo != 11" class="total-ball"
+                    [ngClass]="{'bg-red': open.oneTwoOddEven == '双','bg-blue': open.oneTwoOddEven == '单'}">{{open.oneTwoOddEven}}</span>
+                <span *ngIf="open.oneTwo == 11" class="total-ball bg-ccc">杀</span>
+                <span *ngIf="open.oneTwo != 11" class="total-ball"
+                    [ngClass]="{'bg-red': open.oneTwoBigSmall == '大','bg-blue': open.oneTwoBigSmall == '小','bg-green': open.oneTwoBigSmall == '和'}">{{open.oneTwoBigSmall}}</span>
+                <span *ngIf="open.oneTwo == 11" class="total-ball bg-ccc">杀</span>
+            </div>
+            <div *ngIf="open.LotteryOpenNo.split(',').length == 3 || open.LotteryOpenNo.split(',').length == 5"
+                class="list-result">
+                总和：
+                <span class="total-ball">
+                    <strong
+                        [ngClass]="{'sign-red': open.TheSumOddEven == '双','sign-blue': open.TheSumOddEven == '单'}">{{open.TheSum}}</strong>
+                </span>
+                <span class="total-ball" *ngIf="open.LotteryOpenNo.split(',').length == 3"
+                    [ngClass]="{'bg-red': open.TheSumOddEven == '双','bg-blue': open.TheSumOddEven == '单'}">{{open.TheSumOddEven}}</span>
+                <span class="total-ball" *ngIf="open.LotteryOpenNo.split(',').length == 3"
+                    [ngClass]="{'bg-red': open.TheSumBigSmall == '大','bg-blue': open.TheSumBigSmall == '小','bg-green': open.TheSumBigSmall == '和'}">{{open.TheSumBigSmall}}</span>
+            </div>
+            <div *ngIf="open.LotteryOpenNo.split(',').length == 7" class="list-result">
+                特码：
+                <span class="total-ball">
+                    <strong
+                        [ngClass]="{'sign-red': open.TheSumOddEven == '双','sign-blue': open.TheSumOddEven == '单'}">{{open.LotteryOpenNo.split(',')[6]}}</strong>
+                </span>
+                <!-- <span class="total-ball no-radius"
+                    [ngClass]="{'bg-green': getSxByNum(open.LotteryOpenNo.split(',')[6]).color == 'blue'}"
+                    *ngIf="getSxByNum(open.LotteryOpenNo.split(',')[6]).color == 'blue'">绿</span>
+                <span class="total-ball no-radius"
+                    [ngClass]="{'bg-red': getSxByNum(open.LotteryOpenNo.split(',')[6]).color == 'red'}"
+                    *ngIf="getSxByNum(open.LotteryOpenNo.split(',')[6]).color == 'red'">红</span>
+                <span class="total-ball no-radius"
+                    [ngClass]="{'bg-blue': getSxByNum(open.LotteryOpenNo.split(',')[6]).color == 'green'}"
+                    *ngIf="getSxByNum(open.LotteryOpenNo.split(',')[6]).color == 'green'">蓝</span>
+                <span class="total-ball bg-red" *ngIf="(open.LotteryOpenNo.split(',')[6]) > 24">大</span>
+                <span class="total-ball bg-blue" *ngIf="(open.LotteryOpenNo.split(',')[6]) < 25">小</span>
+                <span class="total-ball bg-red" *ngIf="(open.LotteryOpenNo.split(',')[6]) % 2 == 0">双</span>
+                <span class="total-ball bg-blue" *ngIf="(open.LotteryOpenNo.split(',')[6]) % 2!= 0">单</span> -->
+            </div>
+        </div>
+    </div>
+</ion-content>

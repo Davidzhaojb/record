@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button color="light" text=''></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div class="link-wrapper" *ngIf="isHasUrl">
+        <h1>线路选择</h1>
+        <ul>
+            <li *ngFor="let n of autourl" (click)="saveApiUrl(n.urlVal)">
+                <p>{{n.urlVal}}</p>
+                <span class="{{n.colorVal}}">{{n.pingVal}}</span>
+                <b *ngIf="n.numberVal<200">推荐</b>
+            </li>
+        </ul>
+        <button (click)="getPlatformLineLists()">点击重新测速</button>
+    </div>
+</ion-content>

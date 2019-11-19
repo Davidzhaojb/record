@@ -1,0 +1,98 @@
+.check-picker {
+    display: inline-block;
+    margin: 0;
+    .check-name {
+        font-weight: normal;
+        font-size: 1.4rem;
+        border: 1px solid;
+        padding: 0.4rem;
+        border-radius: 0.3rem;
+        display: inline-block;
+        ion-icon {
+            font-size: 1.8rem;
+            vertical-align: middle;
+        }
+    }
+    .item-native {
+        .item-inner {
+            padding: 0;
+        }
+    }
+}
+.more {
+    float: right;
+}
+.more-menu {
+    width: 100px;
+    .popover-content {
+        left: 0 !important;
+    }
+}
+ion-title {
+    padding: 0 5rem;
+}
+//  彩种切换
+.lottery-mark {
+    position: fixed;
+    top: 44px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.2);
+    .colse-modal {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
+}
+// 玩法选择
+.game-select-box {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 0.55px solid #c8c7cc;
+    align-items: center;
+    .momore-play-box {
+        overflow: scroll;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    .roll {
+        width: 150%;
+        .activd {
+            color: red;
+        }
+    }
+    button {
+        background: none;
+        color: #8f929c;
+        text-align: center;
+        padding: .8rem .6rem;
+        outline: 0;
+    }
+    .point {
+        color: #be1413;
+    }
+}
+.sc-ion-popover-ios-h {
+    --width: 300px;
+}
+.popover-content.sc-ion-popover-ios {
+    border-radius: 0;
+    --width: 300px;
+}
+
+.popover-content {
+    --width: 300px;
+    .game-selects {
+        --width: 300px;
+        .popover-content {
+            border-radius: 0;
+            --width: 300px;
+        }
+        .sc-ion-popover-ios-h {
+            --width: 300px;
+        }
+    }
+}

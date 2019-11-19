@@ -1,0 +1,136 @@
+.content {
+	--background: #f4f4f4;
+	ion-button {
+		font-size: 1.2rem;
+		margin-left: 0.4rem;
+	}
+	ion-item {
+		font-size: 1.2rem;
+	}
+	.per-header {
+		position: relative;
+		padding-left: 100px; /* LC width */
+		padding-right: 100px; /* RC width */
+		height: 10rem;
+		background: #be1413;
+		margin-bottom: 3rem;
+		.column {
+			height: 100%;
+			position: relative;
+			float: left;
+			text-align: center;
+		}
+		.per-header-name {
+			padding-top: 3.6rem;
+			p {
+				text-align: left;
+				color: #fff;
+				font-size: 1.4rem;
+				font-weight: bold;
+			}
+		}
+		.per-header-btn {
+			padding-top: 1.4rem;
+		}
+		.per-header-custom {
+			position: absolute;
+			left: 50%;
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+			bottom: -5rem;
+			height: 5rem;
+			background: #fff;
+			width: 90%;
+			border-radius: 5px;
+			.per-left {
+				padding: 0.8rem 0.4rem;
+				.per-balance {
+					color: #888888;
+					font-size: 1.4rem;
+					margin-bottom: 0.1rem;
+					padding-left: 0.2rem;
+				}
+				.per-money {
+					font-family: "roboto";
+					color: #333333;
+					font-size: 1.6rem;
+					font-weight: bold;
+					padding-left: 0.2rem;
+					.icon-ref {
+						vertical-align: middle;
+						font-size: 1.8rem;
+					}
+				}
+			}
+			.per-header-rec {
+				--border-radius: 5px;
+				--background: -webkit-linear-gradient(left, #da1c40, #dc2020);
+				--background: -o-linear-gradient(right, #da1c40, #dc2020);
+				--background: -moz-linear-gradient(right, #da1c40, #dc2020);
+				--background: linear-gradient(to right, #da1c40, #dc2020);
+				min-width: 5rem;
+			}
+		}
+		#center {
+			width: 100%;
+		}
+		#left {
+			width: 100px; /* LC width */
+			right: 100px; /* LC width */
+			margin-left: -100%;
+			position: relative;
+			img {
+				width: 60%;
+				border-radius: 50%;
+				position: absolute;
+				left: 0;
+				top: -2.2rem;
+				bottom: 0;
+				right: 0;
+				margin: auto;
+			}
+		}
+		#right {
+			width: 100px; /* RC width */
+			margin-right: -100px; /* RC width */
+		}
+	}
+
+	.finance {
+		width: 90%;
+		margin: 3.8rem auto 0 auto;
+		background: #fff;
+		border-radius: 5px;
+		.finace-img {
+			width: 72%;
+			border-radius: 50%;
+			margin-bottom: 0.8rem;
+		}
+	}
+
+	.report {
+		width: 90%;
+		margin: 1.4rem auto 0 auto;
+		background: #fff;
+		border-radius: 5px;
+		color: #888888;
+		box-shadow: 0 3px 5px 5px #f1eeee;
+		.list-ios {
+			margin-bottom: 1.4rem;
+		}
+		.report-header {
+			padding: 0.6rem 1.2rem;
+			font-size: 1.4rem;
+			.icon-hide {
+				vertical-align: middle;
+			}
+			.icon-hide-true {
+				color: #ed8f56;
+			}
+		}
+		.item-sty {
+			--border-color: #f9f5f5;
+			color: #888888;
+		}
+	}
+}

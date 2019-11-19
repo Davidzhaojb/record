@@ -1,0 +1,312 @@
+ion-header {
+	background: #fff;
+	.r {
+		color: #be1413;
+		font-size: 1.2rem;
+		font-weight: normal;
+		padding-right: 0.6rem;
+	}
+
+	p.tool {
+		height: 2.4rem;
+		line-height: 2.4rem;
+		text-align: center !important;
+		color: #222;
+		font-size: 1.6rem;
+		background: #fff;
+		border-bottom: 1px solid #ccc;
+	}
+}
+.bg-ccc {
+	background: #ccc;
+}
+.bg-red {
+	background: #ff0000;
+}
+.bg-blue {
+	background: #006aff;
+}
+.bg-green {
+	background: #34d01e;
+}
+.sign-red {
+	color: #ff0000;
+}
+.sign-blue {
+	color: #006aff;
+}
+.sign-green {
+	color: #34d01e;
+}
+// 导航栏
+.check-picker {
+	background: #be1413;
+	text-align: center;
+	.brickname {
+		display: block;
+		color: #fff !important;
+		font-size: 1.4rem;
+	}
+	.item-ios {
+		color: #fff !important;
+		font-size: 1.4rem;
+	}
+}
+// 头部切换
+.topTab {
+	padding: 1rem;
+	box-sizing: border-box;
+	border-bottom: 1px solid #ccc;
+	background: #f5f5f5;
+
+	ul {
+		display: inline-block;
+		vertical-align: middle;
+		display: flex;
+		line-height: 2rem;
+
+		li {
+			float: left;
+			flex: 1;
+			text-align: center;
+		}
+
+		.active {
+			background: #ff0000;
+			border-radius: 18px;
+			color: #fff;
+		}
+	}
+}
+
+// 内容
+.list-wrap {
+	background: #fff;
+	.list-item {
+		border-bottom: 1px solid #eee;
+		& > .list-result {
+			display: flex;
+			box-sizing: border-box;
+			padding: 1rem;
+			line-height: 2.2rem;
+			.number-box {
+				display: block;
+				flex: 1;
+				text-align: center;
+				// display: flex;
+				.numdetail3,
+				.numdetail5,
+				.numdetail7,
+				.numdetail10,
+				.bor-radius,
+				.numdetail {
+					display: block;
+					width: 2.2rem;
+					height: 2.2rem;
+					text-align: center;
+					font-size: 1.4rem;
+					color: #fff;
+					margin: auto;
+				}
+				.numdetail5 {
+					width: 2.6rem;
+					height: 2.6rem;
+					line-height: 2.6rem !important;
+				}
+				.numdetail3,
+				.numdetail5,
+				.numdetail7,
+				.bor-radius,
+				.numdetail {
+					line-height: 2.2rem;
+				}
+				.numdetail10 {
+					line-height: 2.4rem;
+				}
+				.numdetail3,
+				.numdetail5,
+				.numdetail7,
+				.numdetail10 {
+					strong {
+						display: block;
+						line-height: 1.9rem;
+						font-size: 16px;
+						font-weight: bold;
+					}
+				}
+				.numdetail5 {
+					strong {
+						line-height: 2.2rem;
+					}
+				}
+				.numdetail3,
+				.numdetail5 {
+					border: 3px solid #ddd;
+					border-radius: 50%;
+				}
+				.numdetail7 {
+					.six-zodiac {
+						display: inline-block;
+						width: 100%;
+						background: #222;
+					}
+				}
+				.bor-radius,
+				.numdetail,
+				.numdetail10 {
+					&.bg-dark {
+						background: #222;
+						font-size: 1rem;
+						height: 1.6rem;
+						line-height: 1.8rem;
+					}
+				}
+				.sixNum,
+				.six-zodiac {
+					display: block !important;
+					width: 100%;
+					color: #fff;
+					font-style: normal;
+				}
+				.sixNum {
+					width: 2.2rem;
+					height: auto;
+					line-height: 2.2rem;
+					font-size: 14px;
+				}
+				.six-zodiac {
+					height: 1.5rem;
+					line-height: 1.5rem;
+					background: #222;
+				}
+				.numdetail {
+					border-radius: 50%;
+				}
+				.bor-radius {
+					border-radius: 0;
+				}
+				.red {
+					background: #ff0000;
+				}
+
+				.blue {
+					background: #005aff;
+				}
+
+				.green {
+					background: #1ea41e;
+				}
+				.numdetailbetween {
+					margin-right: 15%;
+				}
+				.numdetail10 {
+					font-weight: bold;
+				}
+				// PK10号码球颜色
+				.color01 {
+					background: #e6de00;
+				}
+
+				.color02 {
+					background: #0092dd;
+				}
+
+				.color03 {
+					background: #4b4b4b;
+				}
+
+				.color04 {
+					background: #ff7600;
+				}
+
+				.color05 {
+					background: #17e2e5;
+				}
+
+				.color06 {
+					background: #5234ff;
+				}
+
+				.color07 {
+					background: #bfbfbf;
+				}
+
+				.color08 {
+					background: #ff2600;
+				}
+
+				.color09 {
+					background: #760600;
+				}
+
+				.color10 {
+					background: #03bc00;
+				}
+			}
+			.nameNo {
+				display: block;
+			}
+			.total-ball {
+				display: inline-block;
+				width: 2.2rem;
+				height: 2.2rem;
+				line-height: 2.2rem;
+				text-align: center;
+				font-size: 14px;
+				color: #fff;
+				margin-left: 1.6rem;
+				border-radius: 50%;
+				font-weight: bold;
+				strong {
+					display: block;
+					width: 2.2rem;
+					height: 2.2rem;
+					line-height: 1.9rem;
+					border: 3px solid #ddd;
+					border-radius: 50%;
+				}
+				&.no-radius {
+					border-radius: 0;
+				}
+			}
+		}
+		& > .list-result-lhc {
+			padding: 1rem;
+		}
+	}
+	// 期号，彩种名称
+	.infor-box {
+		box-sizing: border-box;
+		padding: 1rem 1rem 0 1rem;
+		color: #666;
+		overflow: hidden;
+		.right {
+			float: right;
+		}
+		.left {
+			float: left;
+		}
+	}
+}
+
+.lottery-mark {
+	position: fixed;
+	top: 48px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: 999;
+	background: rgba(0, 0, 0, 0.2);
+
+	.lottery-choose {
+		.lottery-types {
+			background: #fff;
+		}
+	}
+
+	.close-choose {
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+	}
+}

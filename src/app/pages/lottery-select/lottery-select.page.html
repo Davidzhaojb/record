@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button color="light" text=''></ion-back-button>
+        </ion-buttons>
+        <ion-title>编辑彩票</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="container">
+   
+    <p class="title">已选彩种</p>
+    <ion-reorder-group (ionItemReorder)="doReorder($event)" disabled="false" *ngIf="likes && likes.length">
+        <!-- Default reorder icon, end aligned items -->
+        <ion-item *ngFor="let like of likes" class="item-padding no-b-b">
+            <ion-icon ios="ios-remove-circle" md="md-remove-circle" item-start (click)="subtraction(like)" class="down">
+            </ion-icon>
+            <ion-label class="label-font">
+                &nbsp;{{like.LotteryName}}
+            </ion-label>
+            <ion-reorder slot="end"></ion-reorder>
+        </ion-item>
+    </ion-reorder-group>
+    <p class="title">全部彩种</p>
+    <ion-reorder-group (ionItemReorder)="doReorderall($event)" disabled="false">
+        <!-- Default reorder icon, end aligned items -->
+        <ion-item *ngFor="let like of leaves" (click)="addition(like)" class="item-padding sssss">
+            <ion-icon ios="ios-add-circle" md="md-add-circle" item-start class="add"></ion-icon>
+            <ion-label class="label-font">
+                &nbsp;{{like.LotteryName}}
+            </ion-label>
+            <ion-reorder slot="end"></ion-reorder>
+        </ion-item>
+    </ion-reorder-group>
+</ion-content>

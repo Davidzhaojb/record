@@ -1,0 +1,29 @@
+/*头部导航栏背景色*/
+ion-toolbar {
+	--background: #be1413;
+}
+
+/*公共按钮样式*/
+ion-button {
+	--background: var(--ion-color-danger-shade);
+	--background-activated: var(--ion-color-danger-tint);
+}
+
+/*头部导航栏文字颜色*/
+ion-title {
+	--color: var(--ion-color-primary-contrast);
+	font-size: 1.6rem;
+}
+/*tab栏按钮颜色*/
+
+ion-tab-button {
+	--color-selected: red;
+	ion-icon {
+		font-size: 2.4rem;
+	}
+}
+
+// 头部菜单栏右侧文字
+.ion-header-button {
+	font-size: 1.2rem !important;
+}

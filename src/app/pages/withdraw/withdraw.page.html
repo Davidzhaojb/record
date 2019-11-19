@@ -1,0 +1,82 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button color="light" text=''></ion-back-button>
+        </ion-buttons>
+        <ion-title align="center">提现</ion-title>
+        <ion-buttons slot="end">
+            <ion-button class="font-size-header" (click)="search()" color="light">
+                <ion-icon name="menu" slot="end" color="light"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="balance">
+        <ion-grid fixed>
+            <ion-row>
+                <ion-col class="ion-text-left" size="6">
+                    <p>彩票账户</p>
+                    <p>{{userMoney}}<span class="yuan">元</span></p>
+                </ion-col>
+                <ion-col class="ion-text-left" size="6">
+                    <p>冻结金额</p>
+                    <p>{{userLockMoney}}<span class="yuan">元</span></p>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+    <div class="container">
+        <div class="item money">
+            <ion-item>
+                <ion-label position="fixed">提现金额</ion-label>
+                <ion-input (ionChange)="reset(drawMoney)" type="number" [(ngModel)]="drawMoney" clearInput
+                    placeholder="请输入提现金额"></ion-input>
+            </ion-item>
+        </div>
+        <div class="item message">
+            <p>
+                <ion-icon class="iconsty" name="information-circle"></ion-icon>
+                温馨提示:提现手续费{{ serviceCharge * 100 }}%为<b>{{deduction}}</b>元。实际到账<b>{{actualMoeny}}</b>
+            </p>
+            <p class="paddtop">
+                <ion-icon class="iconsty" name="information-circle"></ion-icon>
+                单次可转 {{minWithDraw}} — {{maxWithDraw}} 元
+            </p>
+        </div>
+        <div class="item pwd">
+            <ion-item>
+                <ion-label position="fixed">资金密码</ion-label>
+                <ion-input type="password" clearInput placeholder="请输入资金密码" [(ngModel)]="password"></ion-input>
+            </ion-item>
+        </div>
+        <div class="item change" *ngIf="cardname">
+            <ion-list>
+                <ion-item>
+                    <ion-label>{{cardname.BankUserName}}</ion-label>
+                    <ion-select (ionChange)="changeCard(cardnameId)" [interfaceOptions]="customActionSheetOptions" interface="action-sheet"
+                        placeholder="{{cardname.BankNum}}" cancelText="取消" [(ngModel)]="cardnameId">
+                        <ion-select-option *ngFor="let card of cards" value="{{card.BankNum}}">
+                            <i class="bankicon bankicon_{{card.BankCode}}"></i>(尾号{{card.BankNum}})</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-list>
+        </div>
+        <div class="item message">
+            <p *ngIf="isHave" class="paddbot">
+                <ion-icon class="iconsty" name="information-circle"></ion-icon>
+                今日已提现次数 <b>{{withTime}}</b>/{{times}} 次
+            </p>
+            <p>
+                <ion-icon class="iconsty" name="information-circle"></ion-icon>
+                *温馨提示：新绑定的银行卡需要<b>{{newCardLimit}}</b>小时才能提现
+            </p>
+        </div>
+        <div class="item btn">
+            <ion-button expand='full' (click)="widthDraw()" [disabled]="!drawMoney||!password">
+                提现
+            </ion-button>
+        </div>
+    </div>
+</ion-content>

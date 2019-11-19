@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button color="light" text=''></ion-back-button>
+        </ion-buttons>
+        <ion-title>选择收信人</ion-title>
+        <ion-buttons slot="end">
+            <ion-button class="font-size-header ion-header-button" color="light" (click)="allChecked()">
+                全选
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="search">
+        <ion-input id="search-input" type="text" placeholder="搜索" (input)="getUpUserOrSubUsers()" tappable
+            [(ngModel)]="inputval">
+        </ion-input>
+        <ion-icon id="search-icon" name="search"></ion-icon>
+    </div>
+    <!-- <ion-list> -->
+    <ion-item *ngFor="let subuser of subUser">
+        <ion-label class="nickname">{{subuser.NickName}}</ion-label>
+        <ion-checkbox slot="start" color="danger" [(ngModel)]="subuser.checked" (click)="checkuser()">
+        </ion-checkbox>
+    </ion-item>
+    <!-- </ion-list> -->
+</ion-content>
+<ion-footer>
+    <ion-button (click)="next()" class="next" expand="full" color="danger">
+        下一步({{userNum}})
+    </ion-button>
+</ion-footer>
