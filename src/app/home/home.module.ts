@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
-import { LotteryService } from 'src/services/lottery.service';
 
 @NgModule({
     imports: [
@@ -14,6 +13,6 @@ import { LotteryService } from 'src/services/lottery.service';
         RouterModule.forChild([{ path: '', component: HomePage }])
     ],
     declarations: [HomePage],
-    providers: [LotteryService]
+    providers: []
 })
 export class HomePageModule { }

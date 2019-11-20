@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { SystemconfigService } from 'src/services/system-config.service';
 
 @Injectable()
 export class RouterService {
     constructor(
         private router: Router,
         private nav: NavController,
-        private sysconfig: SystemconfigService
     ) { }
 
     /**
@@ -32,11 +30,6 @@ export class RouterService {
      * @param author David 2019-10-26
      */
     logOut() {
-        this.sysconfig.logOut().subscribe(res => {
-            if (res) {
-                localStorage.clear();
-                this.router.navigate(['/signin']);
-            }
-        });
+        this.router.navigate(['/signin']);
     }
 }

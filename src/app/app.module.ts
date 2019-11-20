@@ -15,23 +15,13 @@ import { LoadingService } from 'src/providers/loading.service';
 import { HTTP_INTERCEPTORS_PROVIDERS } from 'src/helpers';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SystemconfigService } from 'src/services/system-config.service';
 import { RouterService } from 'src/providers/router.service';
 import { AppConsts } from 'src/shared/app-consts';
 import { MyobserverService } from 'src/providers/myobserve.service';
-import { UserService } from 'src/services/user.service';
-import { LotteryService } from 'src/services/lottery.service';
 import { PlatformLocation } from '@angular/common';
 import { environment } from 'src/environments/environment';
-import { ImService } from 'src/services/im.service';
 
-import { TrendService } from 'src/services/trend.service';
-import { ThirdGameService } from 'src/services/third-game.service';
-import { UserBankService } from 'src/services/userbank.service';
 import { PopOverService } from 'src/providers/popover.service';
-import { BaseSearchComponent } from './base-search/base-search.component';
-import { WithDrawService } from 'src/services/withdraw.service';
-import { TransferService } from 'src/services/transfer.service';
 
 export function appInitializerFactory(
     platformLocation: PlatformLocation,
@@ -112,12 +102,8 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
 @NgModule({
     declarations: [
         AppComponent,
-        BaseSearchComponent,
-        // SearchBarComponent
     ],
     entryComponents: [
-        BaseSearchComponent,
-        // SearchBarComponent
     ],
     imports: [
         BrowserModule,
@@ -142,19 +128,10 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
         ModalService,
         AlertService,
         LoadingService,
-        SystemconfigService,
         RouterService,
         AppConsts,
         MyobserverService,
-        UserService,
-        LotteryService,
-        TrendService,
-        ImService,
-        ThirdGameService,
-        UserBankService,
         PopOverService,
-        WithDrawService,
-        TransferService
     ],
     bootstrap: [AppComponent]
 })

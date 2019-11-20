@@ -3,18 +3,10 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { ComponentsModule } from './components/components.module';
-import { NoMsgComponent } from 'src/app/no-msg/no-msg.component';
-import { SearchBarComponent } from 'src/app/search-bar/search-bar.component';
-import { BaseRecordmainComponent } from 'src/app/base-recordmain/base-recordmain.component';
 import { CopyDirective } from './copy.diretive';
-import { BaseSegmentComponent } from 'src/app/base-segment/base-segment.component';
 
 @NgModule({
     declarations: [
-        NoMsgComponent,
-        SearchBarComponent,
-        BaseRecordmainComponent,
-        BaseSegmentComponent,
         CopyDirective
 
     ],
@@ -30,12 +22,7 @@ import { BaseSegmentComponent } from 'src/app/base-segment/base-segment.componen
         IonicModule,
         FormsModule,
         ComponentsModule,
-        NoMsgComponent,
-        SearchBarComponent,
-        BaseRecordmainComponent,
-        BaseSegmentComponent,
         CopyDirective
-
     ]
 })
 export class ShareModule { }

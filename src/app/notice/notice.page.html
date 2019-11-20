@@ -4,12 +4,5 @@
     </ion-toolbar>
 </ion-header>
 <ion-content class="content">
-    <ion-list class="notice">
-        <ion-item *ngFor="let a of articles" (click)="enterDetail(a.Summary)">
-            <ion-label>
-                <h3>{{a.Title}}</h3>
-                <p class="notice-date">{{a.DateCreated | date:'yyyy-MM-dd HH:mm:ss'}}</p>
-            </ion-label>
-        </ion-item>
-    </ion-list>
+    暂无公告
 </ion-content>
