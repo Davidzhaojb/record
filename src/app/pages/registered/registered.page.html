@@ -7,26 +7,26 @@
 <ion-content>
     <ion-list>
         <ion-item lines="full">
-            <ion-label>用户名</ion-label>
+            <ion-label position="stacked">用户名</ion-label>
             <ion-input placeholder="请输入用户名" [(ngModel)]="username"></ion-input>
         </ion-item>
         <ion-item lines="full">
-            <ion-label>密码</ion-label>
+            <ion-label position="stacked">密码</ion-label>
             <ion-input placeholder="请输入密码" [(ngModel)]="password"></ion-input>
         </ion-item>
         <ion-item lines="full">
-            <ion-label>确认密码</ion-label>
+            <ion-label position="stacked">确认密码</ion-label>
             <ion-input placeholder="确认密码" [(ngModel)]="passwordtwo"></ion-input>
         </ion-item>
         <ion-item lines="full">
-            <ion-label>邮箱</ion-label>
+            <ion-label position="stacked">邮箱</ion-label>
             <ion-input placeholder="请输入邮箱" [(ngModel)]="email"></ion-input>
         </ion-item>
     </ion-list>
-    <ion-button (click)="register()" expand="full">
+    <ion-button (click)="register()" expand="block">
         立即注册
     </ion-button>
-    <ion-button [routerLink]="['/signin']" expand="full">
+    <ion-button [routerLink]="['/signin']" expand="block">
         已有帐号？立即登录
     </ion-button>
 </ion-content>

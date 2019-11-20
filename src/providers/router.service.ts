@@ -30,6 +30,7 @@ export class RouterService {
      * @param author David 2019-10-26
      */
     logOut() {
+        localStorage.clear();
         this.router.navigate(['/signin']);
     }
 }
