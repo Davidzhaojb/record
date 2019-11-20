@@ -51,10 +51,11 @@ export class AppComponent extends AppBasePage {
                 this.splashScreen.hide();
             })
             .then(() => {
-                if (this.storageService.readString('token')) {
+                if (this.storageService.readString('Token')) {
                     this.routerService.goRouterNav('/tabs/home');
                 } else {
                     // 未登录，跳转到登录页面
+                    // this.routerService.goRouterNav('/signin');
                     this.routerService.goRouterNav('/signin');
                 }
             });

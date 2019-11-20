@@ -11,15 +11,15 @@
                 <h2>会员登录</h2>
                 <ion-item class="form-item">
                     <ion-label><i class="icon iconfont icon-login-user"></i></ion-label>
-                    <ion-input type="text" clearInput placeholder="请输入登陆账号" [(ngModel)]="form.username" name="username"
+                    <ion-input type="text" clearInput placeholder="请输入登陆邮箱" [(ngModel)]="email" name="email"
                         (keydown)="keyDown($event)"></ion-input>
                 </ion-item>
                 <ion-item class="form-item">
                     <ion-label><i class="icon iconfont icon-password"></i></ion-label>
-                    <ion-input type="password" clearInput placeholder="请输入密码" [(ngModel)]="form.password"
-                        name="password" (keydown)="keyDown($event)" *ngIf="!isShowPwd">
+                    <ion-input type="password" clearInput placeholder="请输入密码" [(ngModel)]="password" name="password"
+                        (keydown)="keyDown($event)" *ngIf="!isShowPwd">
                     </ion-input>
-                    <ion-input type="text" clearInput placeholder="请输入密码" [(ngModel)]="form.password" name="password"
+                    <ion-input type="text" clearInput placeholder="请输入密码" [(ngModel)]="password" name="password"
                         *ngIf="isShowPwd">
                     </ion-input>
                     <ion-button slot="end" (click)="showPwd()">
@@ -28,6 +28,8 @@
                 </ion-item>
                 <div class="form-item btns">
                     <button expand='block' class="btn-login" (click)="login()">立即登录</button>
+                    <!-- <button expand='block' class="btn-login" [routerLink]="['/register']" >没有帐号？请先注册</button> -->
+                    <p style="margin-top: 10px;" [routerLink]="['/registered']" class="ion-text-center">没有帐号？请先注册</p>
                 </div>
             </form>
         </div>

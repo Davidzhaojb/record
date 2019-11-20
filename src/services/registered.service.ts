@@ -4,12 +4,16 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
     providedIn: 'root'
 })
-export class LoginService extends HttpClientService {
+export class RegisterService extends HttpClientService {
     constructor(@Inject(HttpClient) http) {
         super(http);
     }
-    Login(params) {
-        const reqUrl = '/login';
+    /**
+     * @params 注册
+     * @param author David 2019-11-20
+     */
+    register(params) {
+        const reqUrl = '/register';
         return this.post(reqUrl, params);
     }
 }

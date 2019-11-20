@@ -22,6 +22,7 @@ import { PlatformLocation } from '@angular/common';
 import { environment } from 'src/environments/environment';
 
 import { PopOverService } from 'src/providers/popover.service';
+import { RegisterService } from 'src/services/registered.service';
 
 export function appInitializerFactory(
     platformLocation: PlatformLocation,
@@ -132,6 +133,7 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
         AppConsts,
         MyobserverService,
         PopOverService,
+        RegisterService
     ],
     bootstrap: [AppComponent]
 })

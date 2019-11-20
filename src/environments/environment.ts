@@ -4,10 +4,10 @@
 
 export const environment = {
     production: false,
-    apiUrl: '',
+    apiUrl: 'http://127.0.0.1:7001',
     apiUrlList: [
         {
-            apiUrl: '',
+            apiUrl: 'http://127.0.0.1:7001',
             value: 'no'
         },
     ],

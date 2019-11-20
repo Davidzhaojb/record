@@ -9,39 +9,14 @@ import { zip } from 'rxjs';
 })
 export class SigninPage extends AppBasePage implements OnInit {
     //#region
-    /**
-     * @params 监听捕获异常发送过来的code
-     */
-    public errCode: string;
-    /**
-     * @params 是否显示验证码
-     */
-    public isShowCaptcha = false;
-    /**
-     * @params 是否显示谷歌验证
-     */
-    public isShowGoogle = false;
-    /**
-     * @params captchaId
-     */
-    public captchaId: string;
-    /**
-     * @params 验证码图片地址
-     */
-    public captchaSrc: string;
-    /**
-     * @params 客服地址
-     */
-    public customerUrl: string;
+    public email: string;
+    public password: string;
     /**
      * @params 登录信息
      */
-    public form = {
-        username: 'evantest',
-        password: 'a123456',
-        captcha: '',
-        googleKey: '',
-        captchaId: this.captchaId
+    public params = {
+        userEmail: this.email,
+        pwd: this.password,
     };
     /**
      * @params 是否显示密码
@@ -63,7 +38,19 @@ export class SigninPage extends AppBasePage implements OnInit {
      * @param author David 2019-10-22
      */
     login() {
-       this.routerService.goRouterNav('/tabs/home');
+        this.params.userEmail = this.email;
+        this.params.pwd = this.password;
+        this.loginservice.Login(this.params).subscribe(s => {
+            if (s) {
+                if (s.code === 1) {
+                    this.toastService.success('登录成功', '', 'middle');
+                    this.storageService.write('Token', s.data.token);
+                    this.routerService.goRouterNav('/tabs/home');
+                } else {
+                    this.toastService.success(s.msg, '', 'middle');
+                }
+            }
+        });
     }
 
     /**

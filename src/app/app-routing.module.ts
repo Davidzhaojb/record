@@ -13,6 +13,7 @@ const routes: Routes = [
             import('./pages/signin/signin.module').then(m => m.SigninPageModule)
     },
     { path: 'personal', loadChildren: './personal/personal.module#PersonalPageModule' },
+    { path: 'registered', loadChildren: './pages/registered/registered.module#RegisteredPageModule' },
 ];
 @NgModule({
     imports: [
