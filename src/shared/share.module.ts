@@ -4,7 +4,6 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { ComponentsModule } from './components/components.module';
 import { CopyDirective } from './copy.diretive';
-
 @NgModule({
     declarations: [
         CopyDirective
@@ -15,14 +14,15 @@ import { CopyDirective } from './copy.diretive';
         CommonModule,
         FormsModule,
         IonicModule,
-        ComponentsModule],
+        ComponentsModule,
+    ],
     providers: [],
     exports: [
         CommonModule,
         IonicModule,
         FormsModule,
         ComponentsModule,
-        CopyDirective
+        CopyDirective,
     ]
 })
 export class ShareModule { }

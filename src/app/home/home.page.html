@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar>
-        <ion-title>这是首页</ion-title>
+        <ion-title>创建笔记</ion-title>
     </ion-toolbar>
 </ion-header>
 <ion-content class="container">
@@ -15,4 +15,25 @@
             </ion-fab-button>
         </ion-fab-list>
     </ion-fab>
+    <ion-list>
+        <ion-item lines="full">
+            <ion-label>标题</ion-label>
+            <ion-input type="text" placeholder="请输入标题" [(ngModel)]="title"></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+            <ion-label>副标题</ion-label>
+            <ion-input type="text" placeholder="请输入副标题" [(ngModel)]="subTitle"></ion-input>
+        </ion-item>
+    </ion-list>
+    <quill-editor style="height:300px" [(ngModel)]="content"></quill-editor>
+    <ion-list>
+    <ion-item lines="full">
+        <ion-label>作者</ion-label>
+        <ion-input type="text" placeholder="作者" [(ngModel)]="author"></ion-input>
+    </ion-item>
+    </ion-list>
+    <ion-button (click)="createNotes()" expand="block">
+        创建
+    </ion-button>
+
 </ion-content>
