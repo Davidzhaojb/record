@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar>
-        <ion-title>创建笔记</ion-title>
+        <ion-title>笔记列表</ion-title>
     </ion-toolbar>
 </ion-header>
 <ion-content class="container">
@@ -15,25 +15,33 @@
             </ion-fab-button>
         </ion-fab-list>
     </ion-fab>
-    <ion-list>
-        <ion-item lines="full">
-            <ion-label>标题</ion-label>
-            <ion-input type="text" placeholder="请输入标题" [(ngModel)]="title"></ion-input>
-        </ion-item>
-        <ion-item lines="full">
-            <ion-label>副标题</ion-label>
-            <ion-input type="text" placeholder="请输入副标题" [(ngModel)]="subTitle"></ion-input>
-        </ion-item>
+    <ion-searchbar showCancelButton="focus" cancelButtonText="Custom Cancel"></ion-searchbar>
+    <ion-list lines="full">
+        <!-- Multi-line sliding item with icon options on both sides -->
+        <ion-item-sliding id="item100" *ngFor="let notes of notesList">
+            <ion-item href="javascript:;" [routerLink]="['/note-detail',notes.id]">
+                <ion-label>
+                    <h2>{{notes.notesTitle}}</h2>
+                    <p>A new message in your network</p>
+                    <p>Oceanic Next has joined your network</p>
+                </ion-label>
+                <ion-note slot="end">
+                    {{notes.updatedAt}}
+                </ion-note>
+            </ion-item>
+            <ion-item-options side="start">
+                <ion-item-option>
+                    <ion-icon slot="icon-only" name="heart"></ion-icon>
+                </ion-item-option>
+            </ion-item-options>
+            <ion-item-options side="end">
+                <ion-item-option color="danger" (click)="delete(notes.id)">
+                    <ion-icon slot="icon-only" name="trash"></ion-icon>
+                </ion-item-option>
+                <ion-item-option>
+                    <ion-icon slot="icon-only" name="star"></ion-icon>
+                </ion-item-option>
+            </ion-item-options>
+        </ion-item-sliding>
     </ion-list>
-    <quill-editor style="height:300px" [(ngModel)]="content"></quill-editor>
-    <ion-list>
-    <ion-item lines="full">
-        <ion-label>作者</ion-label>
-        <ion-input type="text" placeholder="作者" [(ngModel)]="author"></ion-input>
-    </ion-item>
-    </ion-list>
-    <ion-button (click)="createNotes()" expand="block">
-        创建
-    </ion-button>
-
 </ion-content>

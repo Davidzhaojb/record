@@ -4,10 +4,11 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { ComponentsModule } from './components/components.module';
 import { CopyDirective } from './copy.diretive';
+import { NoMsgComponent } from 'src/app/no-msg/no-msg.component';
 @NgModule({
     declarations: [
-        CopyDirective
-
+        CopyDirective,
+        NoMsgComponent,
     ],
     entryComponents: [],
     imports: [
@@ -23,6 +24,7 @@ import { CopyDirective } from './copy.diretive';
         FormsModule,
         ComponentsModule,
         CopyDirective,
+        NoMsgComponent,
     ]
 })
 export class ShareModule { }

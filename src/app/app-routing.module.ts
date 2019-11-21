@@ -14,6 +14,8 @@ const routes: Routes = [
     },
     { path: 'personal', loadChildren: './personal/personal.module#PersonalPageModule' },
     { path: 'registered', loadChildren: './pages/registered/registered.module#RegisteredPageModule' },
+    { path: 'add', loadChildren: './add/add.module#AddPageModule' },
+    { path: 'note-detail/:detailId', loadChildren: './pages/note-detail/note-detail.module#NoteDetailPageModule' },
 ];
 @NgModule({
     imports: [

@@ -24,4 +24,12 @@ export class CreateNotesService extends HttpClientService {
         const reqUrl = '/getallnotes';
         return this.get(reqUrl);
     }
+    /**
+     * @params 删除笔记
+     * @param author David 2019-11-21
+     */
+    deleteNotes(params) {
+        const reqUrl = '/deletenote?id=' + params;
+        return this.get(reqUrl);
+    }
 }

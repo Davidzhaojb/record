@@ -7,26 +7,11 @@ import { CreateNotesService } from 'src/services/createnotes.service';
     styleUrls: ['trend.page.scss']
 })
 export class TrendPage extends AppBasePage implements OnInit {
-    /**
-     * @params 全部笔记列表
-     */
-    public notesList: any;
     constructor(
         injector: Injector,
-        private notes: CreateNotesService
-
     ) {
         super(injector);
     }
     ngOnInit() {
-        this.getAllNotes();
-    }
-    getAllNotes() {
-        this.notes.getAllNotes().subscribe(s => {
-            if (s) {
-                this.notesList = s.data;
-                console.log(this.notesList);
-            }
-        });
     }
 }
